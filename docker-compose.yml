@@ -19,14 +19,14 @@ services:
       context: .
       dockerfile: "./docker/Dockerfile.custom"
     restart: unless-stopped
-    container_name: freqtrade_Gateio
+    container_name: freqtrade_Bitget
     volumes:
       - "./user_data:/freqtrade/user_data"
     # Expose api on port 8080 (localhost only)
     # Please read the https://www.freqtrade.io/en/stable/rest-api/ documentation
     # for more information.
     ports:
-      - "127.0.0.1:8080:8080"
+      - "127.0.0.1:8081:8081"
     # Default command used when running `docker compose up`
     command: >
       trade

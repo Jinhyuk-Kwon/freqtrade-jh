@@ -8,6 +8,10 @@ COPY patch/schema.json /freqtrade/build_helpers/schema.json
 COPY patch/telegram.py /freqtrade/freqtrade/rpc/telegram.py
 COPY patch/constants.py /freqtrade/freqtrade/constants.py
 
+COPY patch/exchange/__init__.py /freqtrade/freqtrade/exchange/__init__.py
+COPY patch/exchange/bitget.py /freqtrade/freqtrade/exchange/bitget.py
+COPY patch/exchange/common.py /freqtrade/freqtrade/exchange/common.py
+
 # The below dependency - pyti - serves as an example. Please use whatever you need!
 COPY requirements-plot.txt /freqtrade/
 
