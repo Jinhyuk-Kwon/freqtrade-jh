@@ -1,10 +1,17 @@
-FROM freqtradeorg/freqtrade:develop
-
+FROM freqtradeorg/freqtrade:stable
 # Switch user to root if you must install something from apt
 # Don't forget to switch the user back below!
 # USER root
 
+#add patch file
+COPY patch/schema.json /freqtrade/build_helpers/schema.json
+COPY patch/telegram.py /freqtrade/freqtrade/rpc/telegram.py
+COPY patch/constants.py /freqtrade/freqtrade/constants.py
+
 # The below dependency - pyti - serves as an example. Please use whatever you need!
+COPY requirements-plot.txt /freqtrade/
+
+RUN pip install -r requirements-plot.txt --user --no-cache-dir
 RUN pip install --user pyti
 
 # Switch back to user (only if you required root above)
